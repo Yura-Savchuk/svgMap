@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Map color fileds -->
+    <declare-styleable name="MapFields">
+        <attr name="nicolaev_color" format="color" />
+        <attr name="chernigov_color" format="color" />
+    </declare-styleable>
+
+    <style name="DefaultMapTheme">
+        <item name="nicolaev_color">#ffffff</item>
+        <item name="chernigov_color">#ffffff</item>
+    </style>
+    
+    <!-- Nicolaev colors -->
+    <style name="NicalaevRedColor">
+        <item name="nicolaev_color">#ff0000</item>
+    </style>
+
+    <style name="NicolaevYellowColor">
+        <item name="nicolaev_color">#ffff00</item>
+    </style>
+
+    <style name="NicolaevGreenColor">
+        <item name="nicolaev_color">#00ff00</item>
+    </style>
+
+
+
+    <!-- Chernigov colors -->
+    <style name="ChernigovRedColor">
+        <item name="chernigov_color">#ff0000</item>
+    </style>
+
+    <style name="ChernigovYellowColor">
+        <item name="chernigov_color">#ffff00</item>
+    </style>
+
+    <style name="ChernigovGreenColor">
+        <item name="chernigov_color">#00ff00</item>
+    </style>
+
+
+</resources>
