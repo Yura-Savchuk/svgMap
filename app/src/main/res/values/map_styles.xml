@@ -3,6 +3,7 @@
 
     <!-- Map color fileds -->
     <declare-styleable name="MapFields">
+        <attr name="simpheropol_color" format="color" />
         <attr name="nicolaev_color" format="color" />
         <attr name="chernigov_color" format="color" />
     </declare-styleable>
@@ -10,10 +11,24 @@
     <style name="DefaultMapTheme">
         <item name="nicolaev_color">#ffffff</item>
         <item name="chernigov_color">#ffffff</item>
+        <item name="simpheropol_color">#ffffff</item>
+    </style>
+
+    <!-- Sipheropol color -->
+    <style name="SimpherolRedColor">
+        <item name="simpheropol_color">#ff0000</item>
+    </style>
+
+    <style name="SimpherolYellowColor">
+        <item name="simpheropol_color">#ffff00</item>
+    </style>
+
+    <style name="SimpherolBlueColor">
+        <item name="simpheropol_color">#0000ff</item>
     </style>
     
     <!-- Nicolaev colors -->
-    <style name="NicalaevRedColor">
+    <style name="NicolaevRedColor">
         <item name="nicolaev_color">#ff0000</item>
     </style>
 

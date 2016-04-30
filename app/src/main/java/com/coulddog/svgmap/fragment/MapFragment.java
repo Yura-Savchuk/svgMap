@@ -1,4 +1,4 @@
-package com.coulddog.svgmap;
+package com.coulddog.svgmap.fragment;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -13,13 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.coulddog.svgmap.map.MapRegionColorModel;
+import com.coulddog.svgmap.R;
+import com.coulddog.svgmap.activity.SelectedMapItem;
 import com.coulddog.svgmap.map.MapRegionsColorController;
+import com.coulddog.svgmap.support.DataBaseEmulation;
 
-public class MapFragment extends Fragment {
-
-    private static int chernigovPopulation = 100;
-    private static int nicolaevPopulation = 70;
+public class MapFragment extends Fragment implements SelectedMapItem {
 
     private ImageView mapImageView;
     private MapRegionsColorController util;
@@ -37,25 +36,18 @@ public class MapFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.map_fragment, container, false);
         //init imageView
         mapImageView = (ImageView) rootView.findViewById(R.id.mapImageView);
-        mapImageView.setOnClickListener(mMapImageViewClickListener);
         //set drawable
-        ContextThemeWrapper wrapper = new ContextThemeWrapper(getContext(), R.style.DefaultMapTheme);
-        changeMapTheme(wrapper.getTheme());
+        changeMapTheme(util.getMapTheme(DataBaseEmulation.mapRegionValueModelsHolders[0]));
         return rootView;
     }
-
-    private View.OnClickListener mMapImageViewClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-//            Resources.Theme theme = getResources().newTheme();
-//            theme.applyStyle(R.style.NicalaevRedColor, false);
-//            theme.applyStyle(R.style.ChernigovBlueColor, false);
-            changeMapTheme(util.getMapTheme(new MapRegionColorModel(chernigovPopulation, nicolaevPopulation)));
-        }
-    };
 
     private void changeMapTheme(@StyleRes final Resources.Theme theme) {
         final Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ua, theme);
         mapImageView.setImageDrawable(drawable);
+    }
+
+    @Override
+    public void onSelectedMapItem(int item) {
+        changeMapTheme(util.getMapTheme(DataBaseEmulation.mapRegionValueModelsHolders[item]));
     }
 }
